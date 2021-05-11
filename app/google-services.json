@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "147208743041",
+    "project_id": "medkit-26744",
+    "storage_bucket": "medkit-26744.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147208743041:android:cc1834aa715526a130c580",
+        "android_client_info": {
+          "package_name": "veljkojaksic.medkit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147208743041-p3lrdfphqhl5qf3o24v9pun6k7k0kmqr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0HN0uqMaZlr7IKdyMKzhThfP4V5G-olg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "147208743041-p3lrdfphqhl5qf3o24v9pun6k7k0kmqr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
