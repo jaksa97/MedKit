@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="splash_app_name_color">#D75A4A</color>
+    <color name="button_color">#111F28</color>
+    <color name="border">#E3CDB3</color>
 </resources>

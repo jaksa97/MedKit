@@ -82,7 +82,7 @@ public class SignUpActivity extends AppCompatActivity {
                             Toast.makeText(SignUpActivity.this, "Register successful!",Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {
-                            Toast.makeText(SignUpActivity.this, "Register unsuccessful!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this, "Error! " + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
@@ -25,6 +26,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     int index;
     long delay = 200;
     Handler handler = new Handler();
+    //MediaPlayer mp = new MediaPlayer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,14 +63,21 @@ public class SplashScreenActivity extends AppCompatActivity {
         Animation bottomAnimation = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
         splashBottom.startAnimation(bottomAnimation);
 
+        //HeartBeat sound
+        /*mp = MediaPlayer.create(this, R.raw.HumanSingleHeartBeat);
+        mp.setLooping(true);
+        mp.start();*/
+
         //Initialize handler
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreenActivity.this, SignUpActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                /*mp.release();
+                mp=null;*/
                 finish();
             }
-        }, 4000);
+        }, 3000);
 
     }
 
