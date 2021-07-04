@@ -20,7 +20,7 @@ import com.google.firebase.auth.SignInMethodQueryResult;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    EditText userName, userEmail, userPassword;
+    EditText userFullName, userAddress, userPhoneNumber, userEmail, userPassword;
     TextView login;
     Button register;
     FirebaseAuth fAuth;
@@ -33,15 +33,15 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        userName = findViewById(R.id.signUpName);
+        userFullName = findViewById(R.id.signUpFullName);
+        userAddress = findViewById(R.id.signUpAddress);
+        userPhoneNumber = findViewById(R.id.signUpPhoneNumber);
         userEmail = findViewById(R.id.signUpEmail);
         userPassword = findViewById(R.id.signUpPassword);
         login = findViewById(R.id.existAccount);
         register = findViewById(R.id.signUpBtn);
 
         fAuth = FirebaseAuth.getInstance();
-
-        //fAuth.signOut(); TODO: LogOut on Closing App
 
         if (fAuth.getCurrentUser()!=null)
         {
@@ -54,20 +54,27 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = userEmail.getText().toString().trim();
                 String password = userPassword.getText().toString().trim();
-                String name = userName.getText().toString().trim();
+                String fullName = userFullName.getText().toString().trim();
+                String address = userAddress.getText().toString().trim();
+                String phoneNemuber = userPhoneNumber.getText().toString().trim();
 
-                if (TextUtils.isEmpty(name))
+                if (TextUtils.isEmpty(fullName))
                 {
-                    userName.setError("Name is required!");
+                    userFullName.setError("Name is required!");
                     return;
-                } else if (TextUtils.isEmpty(email))
+                } else if (TextUtils.isEmpty(address))
+                {
+                    userEmail.setError("Address is required!");
+                    return;
+                } else if (TextUtils.isEmpty(phoneNemuber))
+                {
+                    userEmail.setError("Phone number is required!");
+                    return;
+                }
+                else if (TextUtils.isEmpty(email))
                 {
                     userEmail.setError("Email is required!");
                     return;
-                /*} else  if(!TextUtils.isEmpty(email) && checkEmail(userEmail))  TODO: Check if email alredy exist
-                {
-                    userEmail.setError("Email is already exist!");
-                    return;*/
                 } else if(TextUtils.isEmpty(password))
                 {
                     userPassword.setError("Password is required!");
