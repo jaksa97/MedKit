@@ -16,7 +16,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.SignInMethodQueryResult;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -24,8 +28,8 @@ public class SignUpActivity extends AppCompatActivity {
     TextView login;
     Button register;
     FirebaseAuth fAuth;
-
-    boolean check;
+    FirebaseFirestore fStore;
+    String userUID;
 
 
     @Override
@@ -42,6 +46,7 @@ public class SignUpActivity extends AppCompatActivity {
         register = findViewById(R.id.signUpBtn);
 
         fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
         if (fAuth.getCurrentUser()!=null)
         {
@@ -56,7 +61,7 @@ public class SignUpActivity extends AppCompatActivity {
                 String password = userPassword.getText().toString().trim();
                 String fullName = userFullName.getText().toString().trim();
                 String address = userAddress.getText().toString().trim();
-                String phoneNemuber = userPhoneNumber.getText().toString().trim();
+                String phoneNumber = userPhoneNumber.getText().toString().trim();
 
                 if (TextUtils.isEmpty(fullName))
                 {
@@ -66,7 +71,7 @@ public class SignUpActivity extends AppCompatActivity {
                 {
                     userEmail.setError("Address is required!");
                     return;
-                } else if (TextUtils.isEmpty(phoneNemuber))
+                } else if (TextUtils.isEmpty(phoneNumber))
                 {
                     userEmail.setError("Phone number is required!");
                     return;
@@ -87,6 +92,16 @@ public class SignUpActivity extends AppCompatActivity {
                         if (task.isSuccessful())
                         {
                             Toast.makeText(SignUpActivity.this, "Register successful!",Toast.LENGTH_SHORT).show();
+
+                            userUID = fAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference = fStore.collection("users").document(userUID);
+                            Map<String, Object> user = new HashMap<>();
+                            user.put("FullName", fullName);
+                            user.put("Email", email);
+                            user.put("Address", address);
+                            user.put("PhoneNumber", phoneNumber);
+                            documentReference.set(user);
+
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {
                             Toast.makeText(SignUpActivity.this, "Error! " + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
@@ -104,14 +119,4 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    /*private boolean checkEmail(View v)
-    {
-        fAuth.fetchSignInMethodsForEmail(userEmail.getText().toString()).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
-            @Override
-            public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
-                check = task.getResult().getSignInMethods().contains(userEmail.getText().toString());
-            }
-        });
-        return check;
-    }*/
 }
