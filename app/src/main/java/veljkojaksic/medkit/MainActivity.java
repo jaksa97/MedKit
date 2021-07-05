@@ -48,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        bottomNavigationView.getMenu().getItem(3).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                //FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+                finish();
+                return true;
+            }
+        });
 
         //set checked menu item at the beggining
         //bottomNavigationView.getMenu().getItem(1).setChecked(true);

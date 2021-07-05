@@ -11,4 +11,7 @@
     <string name="logout">LogOut</string>
     <string name="address">Address</string>
     <string name="phone_number">Phone number</string>
+    <string name="change_profile_picture">Change profile picture</string>
+    <string name="save">Save</string>
+    <string name="edit">Edit</string>
 </resources>

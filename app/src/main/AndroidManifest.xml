@@ -11,7 +11,8 @@
         android:roundIcon="@drawable/ic_heart"
         android:supportsRtl="true"
         android:theme="@style/Theme.MedKit">
-        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
