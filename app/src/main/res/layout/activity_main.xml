@@ -1,54 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/black"
-    tools:context=".MainActivity">
+<layout>
 
-    <com.denzcoskun.imageslider.ImageSlider
-        android:id="@+id/imageSlider"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        app:auto_cycle="true"
-        app:delay="0"
-        app:period="2000"
-        app:placeholder="@drawable/background_gray"
-        app:error_image="@drawable/background_gray"
-        app:corner_radius="5"
-        android:layout_gravity="center"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/black"
+        tools:context=".Activities.MainActivity">
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bab"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:fabCradleMargin="15dp"
-        app:fabCradleRoundedCornerRadius="25dp"
-        app:fabCradleVerticalOffset="5dp"
-        >
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bnv"
+        <fragment
+            android:id="@+id/fragment"
+            android:name="veljkojaksic.medkit.Fragments.ProfileFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:menu="@menu/bottom_navigation_menu"
-            android:layout_marginRight="16dp"
-            android:background="@android:color/transparent"
+            android:layout_above="@id/bab"/>
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:fabCradleMargin="15dp"
+            app:fabCradleRoundedCornerRadius="25dp"
+            app:fabCradleVerticalOffset="5dp"
+            >
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bnv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:menu="@menu/bottom_navigation_menu"
+                android:layout_marginRight="16dp"
+                android:background="@android:color/transparent"
+                />
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_category"
+            app:layout_anchor="@id/bab"
             />
 
-    </com.google.android.material.bottomappbar.BottomAppBar>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_category"
-        app:layout_anchor="@id/bab"
-        />
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

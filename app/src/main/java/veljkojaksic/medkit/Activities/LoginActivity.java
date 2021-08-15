@@ -1,4 +1,4 @@
-package veljkojaksic.medkit;
+package veljkojaksic.medkit.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import veljkojaksic.medkit.R;
 
 public class LoginActivity extends AppCompatActivity {
 

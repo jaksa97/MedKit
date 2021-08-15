@@ -1,4 +1,4 @@
-package veljkojaksic.medkit;
+package veljkojaksic.medkit.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +21,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import veljkojaksic.medkit.R;
 
 public class SignUpActivity extends AppCompatActivity {
 

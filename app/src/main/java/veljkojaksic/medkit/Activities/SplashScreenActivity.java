@@ -1,4 +1,4 @@
-package veljkojaksic.medkit;
+package veljkojaksic.medkit.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,6 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
@@ -17,6 +16,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
+import veljkojaksic.medkit.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
