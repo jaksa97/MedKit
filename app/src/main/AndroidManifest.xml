@@ -3,6 +3,9 @@
     package="veljkojaksic.medkit">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +14,8 @@
         android:roundIcon="@drawable/ic_heart"
         android:supportsRtl="true"
         android:theme="@style/Theme.MedKit">
+        <activity android:name=".Activities.DrugInformationActivity"></activity>
+        <activity android:name=".Activities.PictureActivity" />
         <activity android:name=".Activities.SignUpActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.SplashScreenActivity">

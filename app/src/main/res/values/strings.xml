@@ -16,4 +16,14 @@
     <string name="edit">Edit</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="capture_picture">Capture picture</string>
+    <string name="upload_picture">Upload picture</string>
+    <string name="save_picture">Save picture</string>
+    <string name="manufacturer">Manufacturer:</string>
+    <string name="type">Type:</string>
+    <string name="dose">Dose:</string>
+    <string name="warning">Warning:</string>
+    <string name="usage">Usage:</string>
+    <string name="price">Price:</string>
+    <string name="symptoms">Symptoms:</string>
 </resources>
