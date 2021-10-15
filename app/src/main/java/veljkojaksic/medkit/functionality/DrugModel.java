@@ -11,10 +11,24 @@ public class DrugModel {
     private String warning;
     private String usage;
     private String price;
+    private String category;
     private List<String> sideEffects;
     private List<String> symptoms;
 
     public DrugModel() { }
+
+    public DrugModel(DrugModel drugModel)
+    {
+        this.name = drugModel.name;
+        this.manufacturer = drugModel.manufacturer;
+        this.type = drugModel.type;
+        this.dose = drugModel.dose;
+        this.warning = drugModel.warning;
+        this.usage = drugModel.usage;
+        this.price = drugModel.price;
+        this.sideEffects = drugModel.sideEffects;
+        this.symptoms = drugModel.symptoms;
+    }
 
     public DrugModel(String name, String manufacturer, String type, String dose, String warning, String usage, String price, List<String> sideEffects, List<String> symptoms) {
         this.name = name;
@@ -82,6 +96,14 @@ public class DrugModel {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public List<String> getSideEffects() {

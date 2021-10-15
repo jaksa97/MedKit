@@ -41,9 +41,17 @@ public class DrugInformationActivity extends AppCompatActivity {
 
         drug = new DrugModel();
 
-        drug = findDrugInformation(drugName);
+        //drug = findDrugInformation(drugName);
 
-        Log.d("asd", drugName.toString() + "   " + drug.getManufacturer());
+        findDrugInformation(drugName);
+
+        /*try {
+            Thread.currentThread().sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+
+        Log.d("asd", "Posle funkcije -->  " + drugName.toString() + "   " + drug.getManufacturer());
 
         binding.setDrug(drug);
 
@@ -51,7 +59,7 @@ public class DrugInformationActivity extends AppCompatActivity {
 
     private DrugModel findDrugInformation(String drugName)
     {
-        DrugModel drugModel = new DrugModel();
+        //DrugModel drugModel = new DrugModel();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -64,14 +72,18 @@ public class DrugInformationActivity extends AppCompatActivity {
                         {
                             if(doc.getString("name").equals(drugName))
                             {
-                                drugModel.setManufacturer(doc.getString("manufacturer"));
-                                drugModel.setType(doc.getString("type"));
-                                drugModel.setDose(doc.getString("dose"));
-                                drugModel.setWarning(doc.getString("warning"));
-                                drugModel.setUsage(doc.getString("usage"));
-                                drugModel.setPrice(doc.getString("price"));
-                                drugModel.setSymptoms(null);
-                                drugModel.setSideEffects(null);
+                                drug.setName(drugName);
+                                drug.setManufacturer(doc.getString("manufacturer"));
+                                drug.setType(doc.getString("type"));
+                                drug.setDose(doc.getString("dose"));
+                                drug.setWarning(doc.getString("warning"));
+                                drug.setUsage(doc.getString("usage"));
+                                drug.setPrice(doc.getString("price"));
+                                drug.setCategory(doc.getString("category"));
+                                drug.setSymptoms(null);
+                                drug.setSideEffects(null);
+
+                                Log.d("asd", "U funkciji -->  " + drugName.toString() + "   " + drug.getManufacturer());
                             }
 
                         }
@@ -84,6 +96,6 @@ public class DrugInformationActivity extends AppCompatActivity {
             }
         });
 
-        return drugModel;
+        return drug;
     }
 }

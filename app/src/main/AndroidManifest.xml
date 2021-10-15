@@ -14,7 +14,9 @@
         android:roundIcon="@drawable/ic_heart"
         android:supportsRtl="true"
         android:theme="@style/Theme.MedKit">
-        <activity android:name=".Activities.DrugInformationActivity"></activity>
+        <activity android:name=".Activities.CategoryActivity"></activity>
+        <activity android:name=".Activities.CategoriesActivity" />
+        <activity android:name=".Activities.DrugInformationActivity" />
         <activity android:name=".Activities.PictureActivity" />
         <activity android:name=".Activities.SignUpActivity" />
         <activity android:name=".Activities.LoginActivity" />
